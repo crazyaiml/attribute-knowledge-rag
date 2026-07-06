@@ -10,7 +10,6 @@ from akrag.decision import classify
 from akrag.embeddings.base import EmbeddingProvider
 from akrag.llm.base import LLMProvider
 from akrag.models import (
-    AttributeDocument,
     DSLFilter,
     DecisionOutcome,
     IngestResult,
@@ -42,7 +41,7 @@ class Orchestrator:
         index_name: str | None = None,
         swap_alias: bool = True,
     ) -> IngestResult:
-        from akrag.contract import validate_records, coerce_to_document
+        from akrag.contract import validate_records
 
         validation = validate_records(raw_records)
         if not validation.valid:

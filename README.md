@@ -592,6 +592,10 @@ In every case the mechanics are identical to the healthcare demo: swap the attri
 
 Early development.
 
+## Contributing
+
+This project is open source and developed entirely through pull requests — `main` is protected by a repository ruleset and does not accept direct pushes. See [CONTRIBUTING.md](CONTRIBUTING.md) for the workflow, local dev setup, and PR expectations. Please also review the [Code of Conduct](CODE_OF_CONDUCT.md) and [Security Policy](SECURITY.md).
+
 ## License
 
-Apache License 2.0
+Apache License 2.0 — see [LICENSE](LICENSE).

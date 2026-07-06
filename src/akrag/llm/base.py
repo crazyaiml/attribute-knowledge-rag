@@ -28,7 +28,8 @@ class LLMProvider(ABC):
         user_msg = f"Query: {user_input}"
         raw = await self.complete([Message(role="system", content=system),
                                    Message(role="user", content=user_msg)])
-        import json, re
+        import json
+        import re
         m = re.search(r"\[.*?\]", raw, re.DOTALL)
         if m:
             return json.loads(m.group())

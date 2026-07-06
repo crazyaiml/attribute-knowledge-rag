@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from akrag.models import AttributeDocument, DecisionOutcome, PhraseDecision, SearchResult
+from akrag.models import DecisionOutcome, PhraseDecision, SearchResult
 
 
 def classify(

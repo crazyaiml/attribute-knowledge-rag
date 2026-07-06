@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import pytest
 from akrag.contract import coerce_to_document, validate_records, validate_row
 from akrag.models import AttributeDocument
 

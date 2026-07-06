@@ -1,0 +1,25 @@
+name: Feature Request
+description: Suggest a new provider, capability, or improvement.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: What are you trying to do that AK-RAG doesn't support today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Sketch out the approach if you have one — e.g. a new LLM/embedding/search provider, a new decision outcome, a new governance field.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Any other approaches you considered and why you didn't pick them.
+    validations:
+      required: false

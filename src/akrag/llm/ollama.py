@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import json
 import httpx
 
 from akrag.llm.base import LLMProvider, Message

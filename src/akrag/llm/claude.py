@@ -15,7 +15,6 @@ class ClaudeLLM(LLMProvider):
         self.model = model
 
     async def complete(self, messages: list[Message], max_tokens: int = 1024) -> str:
-        import anthropic
 
         system_text = ""
         chat: list[dict] = []

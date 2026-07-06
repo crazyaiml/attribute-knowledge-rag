@@ -7,7 +7,6 @@ from typing import Optional
 
 import typer
 from rich import print as rprint
-from rich.table import Table
 
 app = typer.Typer(name="akrag", help="Attribute Knowledge RAG CLI")
 
@@ -106,8 +105,6 @@ def query(
     from akrag.contract import coerce_to_document
     from akrag.embeddings.factory import get_embedder
     from akrag.io import read_ndjson
-    from akrag.llm.factory import get_llm
-    from akrag.orchestrator import Orchestrator
     from akrag.search.local import LocalSearchBackend
 
     records = read_ndjson(ndjson_path)
@@ -115,7 +112,6 @@ def query(
 
     embedder = get_embedder()
     search = LocalSearchBackend()
-    orc = Orchestrator(embedder, search, get_llm())
 
     # Embed documents
     texts = [d.compose_embedding_text() for d in documents]
@@ -126,7 +122,6 @@ def query(
     _run(search.index(documents))
 
     # Build a fake evaluate call using only the local LLM-free path
-    import asyncio
     from akrag.decision import classify
 
     async def _search_all():

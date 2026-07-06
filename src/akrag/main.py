@@ -5,6 +5,11 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from akrag.api.health import router as health_router
+from akrag.api.ingest import router as ingest_router
+from akrag.api.query import router as query_router
+from akrag.api.settings import router as settings_router
+
 _DESCRIPTION = """
 **AK-RAG** transforms enterprise attribute metadata into an AI-searchable knowledge layer.
 
@@ -123,11 +128,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-from akrag.api.health import router as health_router
-from akrag.api.ingest import router as ingest_router
-from akrag.api.query import router as query_router
-from akrag.api.settings import router as settings_router
 
 app.include_router(health_router)
 app.include_router(ingest_router)
