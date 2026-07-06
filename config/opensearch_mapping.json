@@ -1,0 +1,49 @@
+{
+  "settings": {
+    "index": {
+      "knn": true,
+      "knn.algo_param.ef_search": 512,
+      "number_of_shards": 1,
+      "number_of_replicas": 0
+    }
+  },
+  "mappings": {
+    "properties": {
+      "attribute_id":     { "type": "keyword" },
+      "type":             { "type": "keyword" },
+      "business_name":    { "type": "text", "analyzer": "english", "fields": { "keyword": { "type": "keyword" } } },
+      "technical_field":  { "type": "keyword" },
+      "domain":           { "type": "keyword" },
+      "definition":       { "type": "text", "analyzer": "english" },
+      "synonyms":         { "type": "text", "analyzer": "english" },
+      "operators":        { "type": "keyword" },
+      "unit":             { "type": "keyword" },
+      "example_values":   { "type": "keyword" },
+      "allowed_values":   { "type": "keyword" },
+      "governance": {
+        "properties": {
+          "pii":              { "type": "boolean" },
+          "sensitive":        { "type": "boolean" },
+          "allowed_channels": { "type": "keyword" },
+          "eligible_domains": { "type": "keyword" }
+        }
+      },
+      "embedding_text":    { "type": "text", "analyzer": "english" },
+      "embedding_model":   { "type": "keyword" },
+      "embedding_version": { "type": "keyword" },
+      "vector": {
+        "type": "knn_vector",
+        "dimension": 384,
+        "method": {
+          "name": "hnsw",
+          "space_type": "cosinesimil",
+          "engine": "nmslib",
+          "parameters": {
+            "ef_construction": 512,
+            "m": 16
+          }
+        }
+      }
+    }
+  }
+}
